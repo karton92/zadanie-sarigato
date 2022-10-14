@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Youtube Channels</title>
+  </head>
+
+  <body class="wrapper">
+    <header class="wrapper-header">
+      <h1 class="header">
+        <span class="header-logo">
+          <img src="https://miro.medium.com/max/1024/1*S-nV902O1yWwpFbxn0P_xA.png" alt="logo" class="header-logo-img" />
+        </span>
+        Channels
+      </h1>
+      <!-- <button class="button button-theme" id="btn-theme">CONTRAST</button> -->
+    </header>
+    <main class="wrapper-main"></main>
+    <div class="wrapper-filter">
+      <div class="filter">
+        <input class="filter-input" type="text" placeholder="filter channels..." />
+      </div>
+    </div>
+    <aside class="wrapper-aside">
+      <div class="sort">
+        <h3 class="sort-header">Sort channels by:</h3>
+        <ul class="sort-options">
+          <li>
+            <input class="choice choice--radio" name="sort" type="radio" id="sort-title" />
+            <label class="choice-label" for="sort-title">title</label>
+          </li>
+          <li>
+            <input class="choice choice--radio" name="sort" type="radio" id="sort-subscribers" />
+            <label class="choice-label" for="sort-subscribers">subscribers</label>
+          </li>
+          <li>
+            <input class="choice choice--radio" name="sort" type="radio" id="sort-videos" />
+            <label class="choice-label" for="sort-videos">videos</label>
+          </li>
+          <li>
+            <input class="choice choice--radio" name="sort" type="radio" id="sort-views" />
+            <label class="choice-label" for="sort-views">views</label>
+          </li>
+        </ul>
+        <button class="button">Clear</button>
+      </div>
+    </aside>
+    <script src="index.js"></script>
+  </body>
+</html>

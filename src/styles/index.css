@@ -1,4 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+:root {
+  --bg-wrapper: #eceff1;
+  --bg-btn: #ff5a00;
+  --bg-btn-active: #ff9c66;
+  --bg-btn-hover: #ff7b33;
+  --bg-choice: #1bb826;
+  --color-text: #222;
+}
+
+/* GENERAL SECTION */
 
 html {
   line-height: 1.15;
@@ -14,6 +25,17 @@ h1 {
   margin: 0.67em 0;
 }
 
+.wrapper {
+  font-family: "Lato", sans-serif;
+  background: var(--bg-wrapper);
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.wrapper-main {
+  order: 3;
+}
+
 b,
 strong {
   font-weight: bolder;
@@ -21,7 +43,7 @@ strong {
 
 button,
 input {
-  font-family: inherit; 
+  font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
@@ -53,7 +75,7 @@ button:-moz-focusring {
   border: 0;
   border-radius: 2px;
   box-sizing: border-box;
-  color: #222;
+  color: var(--color-text);
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
@@ -70,7 +92,7 @@ button:-moz-focusring {
   vertical-align: middle;
   white-space: nowrap;
   width: auto;
-  background: #ff5a00;
+  background: var(--bg-btn);
   color: #fff;
   font-weight: 500;
   letter-spacing: 2px;
@@ -78,12 +100,34 @@ button:-moz-focusring {
 }
 
 .button:active {
-  background: #ff9c66;
+  background: var(--bg-btn-active);
 }
 
 .button:focus,
 .button:hover {
-  background: #ff7b33;
+  background: var(--bg-btn-hover);
+}
+
+/* HEADER SECTION */
+
+.wrapper-header {
+  order: 0;
+  /* padding: 10px 0; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo-img {
+  top: 0.5rem;
+  display: inline-block;
+  max-width: 70px;
+  position: relative;
+}
+
+/* FILTER SECTION */
+.wrapper-filter {
+  order: 1;
 }
 
 .choice {
@@ -93,7 +137,7 @@ button:-moz-focusring {
   position: absolute;
 }
 
-.choice + .choice__label {
+.choice + .choice-label {
   -ms-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
@@ -109,13 +153,13 @@ button:-moz-focusring {
   text-size-adjust: 100%;
 }
 
-.choice + .choice__label:active {
+.choice + .choice-label:active {
   background-color: #fff;
   border-radius: 2px;
-  opacity: .3;
+  opacity: 0.3;
 }
 
-.choice + .choice__label:before {
+.choice + .choice-label:before {
   border: 1px solid #aaa;
   border-radius: 2px;
   box-sizing: border-box;
@@ -125,53 +169,53 @@ button:-moz-focusring {
   margin-left: -28px;
   margin-right: 8px;
   min-width: 20px;
-  transition: border-color .3s;
+  transition: border-color 0.3s;
   vertical-align: top;
 }
 
-.choice + .choice__label:hover:before,
-.choice:hover + .choice__label:before {
+.choice + .choice-label:hover:before,
+.choice:hover + .choice-label:before {
   border-color: #767676;
 }
 
-.choice + .choice__label:hover:before,
-.choice:checked + .choice__label:before,
-.choice:hover + .choice__label:before {
-  border-width: 2px
+.choice + .choice-label:hover:before,
+.choice:checked + .choice-label:before,
+.choice:hover + .choice-label:before {
+  border-width: 2px;
 }
 
-.choice + .choice__label:after {
+.choice + .choice-label:after {
   background: transparent;
   content: "";
   display: inline-block;
   position: absolute;
-  transform-origin: top left
+  transform-origin: top left;
 }
 
-.choice--radio + .choice__label:after {
+.choice--radio + .choice-label:after {
   border-radius: 50%;
   height: 8px;
   left: 6px;
   top: 10px;
-  width: 8px
+  width: 8px;
 }
 
-.choice--radio:checked + .choice__label:after {
-  background: #1bb826;
+.choice--radio:checked + .choice-label:after {
+  background: var(--bg-choice);
 }
 
-.choice:checked + .choice__label:before {
-  border-color: #1bb826;
+.choice:checked + .choice-label:before {
+  border-color: var(--bg-choice);
 }
 
-.choice--radio + .choice__label:before {
+.choice--radio + .choice-label:before {
   border-radius: 50%;
 }
 
-.filter__input {
-  font-family: 'Open Sans',sans-serif;
+.filter-input {
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
-  transition: border-color .2s ease-in-out, box-shadow .2s ease-in-out;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   vertical-align: top;
   -moz-appearance: none;
   -ms-text-size-adjust: 100%;
@@ -182,7 +226,7 @@ button:-moz-focusring {
   border: 1px solid #aaa;
   border-radius: 2px;
   box-sizing: border-box;
-  color: #222;
+  color: var(--color-text);
   height: 40px;
   line-height: 21px;
   margin: 0;
@@ -196,8 +240,8 @@ button:-moz-focusring {
   background: #fff;
   padding: 8px;
 }
-.filter__input:focus,
-.filter__input:hover {
+.filter-input:focus,
+.filter-input:hover {
   border-color: #767676;
   box-shadow: 0 0 0 1px #767676;
 }
@@ -207,39 +251,22 @@ button:-moz-focusring {
   padding: 10px;
 }
 
-.sort__options {
+.sort-options {
   list-style-type: none;
   padding-left: 8px;
   margin: 8px;
 }
 
-.sort__header {
+.sort-header {
   font-weight: bold;
   font-size: 20px;
   margin: 0 0 8px 0;
 }
 
-.wrapper {
-  font-family: 'Lato', sans-serif;
-  background: #eceff1;
-  display: flex;
-  flex-flow: column wrap;
-}
+/* ASIDE SECTION */
 
-.wrapper__header {
-  order: 0;
-}
-
-.wrapper__filter {
-  order: 1;
-} 
-
-.wrapper__aside {
+.wrapper-aside {
   order: 2;
-}
-
-.wrapper__main {
-  order: 3;
 }
 
 @media only screen and (min-width: 544px) {
@@ -249,22 +276,22 @@ button:-moz-focusring {
 
   .wrapper {
     margin: 8px;
-    display:-ms-grid;
+    display: -ms-grid;
     display: grid;
     -ms-grid-columns: 40% 60%;
     -ms-grid-rows: 80px 56px 1fr;
     grid-template-columns: 40% 60%;
-    grid-template-rows: 80px 56px 1fr; 
+    grid-template-rows: 80px 56px 1fr;
   }
 
-  .wrapper__header {
+  .wrapper-header {
     order: 0;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
     grid-column: 1 / -1;
   }
-  
-  .wrapper__aside {
+
+  .wrapper-aside {
     order: 1;
     -ms-grid-column: 1;
     -ms-grid-row: 2;
@@ -272,8 +299,8 @@ button:-moz-focusring {
     grid-column: 1;
     grid-row: 2 / 4;
   }
-  
-  .wrapper__filter {
+
+  .wrapper-filter {
     order: 2;
     -ms-grid-column: 2;
     -ms-grid-row: 2;
@@ -281,7 +308,7 @@ button:-moz-focusring {
     grid-row: 2;
   }
 
-  .wrapper__main {
+  .wrapper-main {
     order: 3;
     -ms-grid-column: 2;
     -ms-grid-row: 3;

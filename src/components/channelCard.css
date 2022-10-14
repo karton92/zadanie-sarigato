@@ -1,0 +1,56 @@
+:root {
+  --bg-color: #fff;
+  --text-color: rgb(105, 104, 104);
+}
+
+/* MAIN SECTION */
+
+.wrapper-main {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  align-items: stretch;
+  column-gap: 0.6em;
+  row-gap: 0.6em;
+  margin-top: 0.6em;
+}
+
+.card {
+  padding: 1.5em;
+  background-color: var(--bg-color);
+}
+
+.card-img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 100%;
+  max-width: 80%;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.card-stats-title {
+  color: var(--text-color);
+  font-size: 0.7em;
+  margin: 0;
+}
+
+.card-stats-number {
+  margin: 0;
+  font-weight: bold;
+}
+
+.card-stats-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
