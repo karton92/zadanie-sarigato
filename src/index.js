@@ -1,4 +1,4 @@
-import "./styles/index.css";
+import "./index.css";
 import { getData } from "./utils/getData";
 import { channelCard } from "./components/channelCard";
 import { filterCards, sortCards, clearOptions, addCards } from "./utils/functions";

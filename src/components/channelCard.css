@@ -54,3 +54,21 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+@media only screen and (max-width: 1280px) {
+  .wrapper-main {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+  }
+  .card-img {
+    max-width: 55%;
+  }
+}
+
+@media only screen and (max-width: 945px) {
+  .wrapper-main {
+    grid-template-columns: repeat(1, minmax(250px, 1fr));
+  }
+  .card-img {
+    max-width: 50%;
+  }
+}

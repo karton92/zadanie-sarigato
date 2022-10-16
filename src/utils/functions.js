@@ -1,11 +1,3 @@
-// export const addHints = (hintsList, options) => {
-//   let hintsArr = options.map((option) => option.title);
-//   for (let hint of hintsArr) {
-//     const option = document.createElement("option");
-//     option.value = hint;
-//     hintsList.appendChild(option);
-//   }
-// };
 export const formatString = (string) => string.replace(/[\s\.\,]/g, "");
 
 export const stringSeparator = (string) => {
