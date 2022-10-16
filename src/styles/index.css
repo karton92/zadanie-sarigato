@@ -108,6 +108,15 @@ button:-moz-focusring {
   background: var(--bg-btn-hover);
 }
 
+.active-sort,
+.active-sort:focus {
+  background-color: #1bb826;
+}
+
+.active-sort:hover {
+  background-color: #68cb6e;
+}
+
 /* HEADER SECTION */
 
 .wrapper-header {

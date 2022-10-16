@@ -7,7 +7,12 @@ export const channelCard = (parentElement, data) => {
     statistics: { subscriberCount, videoCount, viewCount },
   } = data;
 
-  let card = ` <div class="card">
+  let card = ` <div class="card"
+  data-title="${title}" 
+  data-subscribers="${subscriberCount}"
+  data-videos="${videoCount}"
+  data-views="${viewCount}"
+  >
                         <a href="" target="_blank">
                             <img class="card-img"
                                 srcset="${thumbnails.medium.url} ${thumbnails.medium.width}w,
@@ -15,8 +20,6 @@ export const channelCard = (parentElement, data) => {
                                 src=${thumbnails.default.url} alt="Logo ${title}"
                             />
                             <p class="card-title">${title}</p>
-
-
                             <div class="card-stats-wrapper">
                                 <div class="card-stats">
                                     <p class="card-stats-title">SUBSCRIBERS</p>
