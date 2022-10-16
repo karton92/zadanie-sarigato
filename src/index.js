@@ -1,7 +1,7 @@
 import "./styles/index.css";
 import { getData } from "./utils/getData";
 import { channelCard } from "./components/channelCard";
-import { filterCards, sortCards, clearOptions } from "./utils/functions";
+import { filterCards, sortCards, clearOptions, addCards } from "./utils/functions";
 
 let data = await getData();
 let sortDirection = "";
@@ -10,14 +10,17 @@ let sortChoiceValue = "";
 (function () {
   const elements = {
     cardsContainer: document.querySelector(".wrapper-main"),
+    cards: [...document.querySelectorAll(".card")],
     filterInput: document.querySelector("input"),
     choice: [...document.querySelectorAll(".choice")],
     sortBtnUp: document.querySelector(".sort-up"),
     sortBtnDown: document.querySelector(".sort-down"),
     clearBtn: document.querySelector(".clear"),
+    themeBtn: document.querySelector(".theme"),
   };
 
-  if (data.length && Array.isArray(data)) {
+  // addCards(data, elements.cardsContainer, elements.cards, channelCard);
+  if (data.length) {
     data.map((card) => {
       channelCard(elements.cardsContainer, card);
     });
@@ -45,7 +48,7 @@ let sortChoiceValue = "";
     })
   );
 
-  //ADD EVENT LISTENERS
+  //SORT BUTTONS
   elements.sortBtnUp.addEventListener("click", () => {
     sortDirection = "up";
     sortCards(elements.cards, elements.cardsContainer, sortDirection, sortChoiceValue);
@@ -59,6 +62,7 @@ let sortChoiceValue = "";
     elements.sortBtnDown.classList.add("active-sort");
   });
 
+  //CLEAR BUTTON
   elements.clearBtn.addEventListener("click", () => {
     clearOptions(elements);
     elements.cards = [];
@@ -67,5 +71,10 @@ let sortChoiceValue = "";
     });
 
     elements.cards = [...document.querySelectorAll(".card")];
+  });
+
+  //THEME BUTTON
+  elements.themeBtn.addEventListener("click", () => {
+    document.documentElement.classList.toggle("contrast-mode");
   });
 })();

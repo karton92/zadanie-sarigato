@@ -2,11 +2,26 @@
 
 :root {
   --bg-wrapper: #eceff1;
+  --bg-second-wrapper: #fff;
   --bg-btn: #ff5a00;
-  --bg-btn-active: #ff9c66;
   --bg-btn-hover: #ff7b33;
+  --bg-btn-active: #1bb826;
+  --bg-btn-active-hover: #17ca70;
   --bg-choice: #1bb826;
   --color-text: #222;
+  --choice-border: #aaa;
+}
+
+:root.contrast-mode {
+  --bg-wrapper: #a9a9a9;
+  --bg-second-wrapper: rgb(232, 232, 232);
+  --bg-btn: #00a5ff;
+  --bg-btn-hover: #38b9ff;
+  --bg-btn-active: #c353b2;
+  --bg-btn-active-hover: #b262a6;
+  --bg-choice: #c353b2;
+  --color-text: #eceff1;
+  --choice-border: rgb(11, 11, 11);
 }
 
 /* GENERAL SECTION */
@@ -110,11 +125,11 @@ button:-moz-focusring {
 
 .active-sort,
 .active-sort:focus {
-  background-color: #1bb826;
+  background-color: var(--bg-btn-active);
 }
 
 .active-sort:hover {
-  background-color: #68cb6e;
+  background-color: var(--bg-btn-active-hover);
 }
 
 /* HEADER SECTION */
@@ -169,7 +184,7 @@ button:-moz-focusring {
 }
 
 .choice + .choice-label:before {
-  border: 1px solid #aaa;
+  border: 1px solid var(--choice-border);
   border-radius: 2px;
   box-sizing: border-box;
   content: "";
@@ -246,7 +261,7 @@ button:-moz-focusring {
   width: 100%;
 }
 .filter {
-  background: #fff;
+  background: var(--bg-second-wrapper);
   padding: 8px;
 }
 .filter-input:focus,
@@ -256,7 +271,7 @@ button:-moz-focusring {
 }
 
 .sort {
-  background: #fff;
+  background: var(--bg-second-wrapper);
   padding: 10px;
 }
 
