@@ -1,7 +1,7 @@
 import "./styles/index.css";
 import { getData } from "./utils/getData";
 import { channelCard } from "./components/channelCard";
-import { filterCards, sortCards } from "./utils/functions";
+import { filterCards, sortCards, clearOptions } from "./utils/functions";
 
 let data = await getData();
 let sortDirection = "";
@@ -14,20 +14,19 @@ let sortChoiceValue = "";
     choice: [...document.querySelectorAll(".choice")],
     sortBtnUp: document.querySelector(".sort-up"),
     sortBtnDown: document.querySelector(".sort-down"),
+    clearBtn: document.querySelector(".clear"),
   };
 
   if (data.length && Array.isArray(data)) {
-    data.map((channel) => {
-      channelCard(elements.cardsContainer, channel);
+    data.map((card) => {
+      channelCard(elements.cardsContainer, card);
     });
 
     elements.cards = [...document.querySelectorAll(".card")];
-
-    // addDatalistOptions(elems.hintsList, channels);
   }
 
   //FILTERING CARDS
-  elements.filterInput.addEventListener("input", function (e) {
+  elements.filterInput.addEventListener("input", (e) => {
     let inputValue = e.target.value.toLowerCase();
     filterCards(inputValue, elements.cards);
   });
@@ -46,6 +45,7 @@ let sortChoiceValue = "";
     })
   );
 
+  //ADD EVENT LISTENERS
   elements.sortBtnUp.addEventListener("click", () => {
     sortDirection = "up";
     sortCards(elements.cards, elements.cardsContainer, sortDirection, sortChoiceValue);
@@ -57,5 +57,15 @@ let sortChoiceValue = "";
     sortCards(elements.cards, elements.cardsContainer, sortDirection, sortChoiceValue);
     elements.sortBtnUp.classList.remove("active-sort");
     elements.sortBtnDown.classList.add("active-sort");
+  });
+
+  elements.clearBtn.addEventListener("click", () => {
+    clearOptions(elements);
+    elements.cards = [];
+    data.map((card) => {
+      channelCard(elements.cardsContainer, card);
+    });
+
+    elements.cards = [...document.querySelectorAll(".card")];
   });
 })();

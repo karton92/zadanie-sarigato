@@ -6,11 +6,17 @@
 //     hintsList.appendChild(option);
 //   }
 // };
-export const formatToNumber = (element) => element.replace(/[,.\s]/g, "");
+export const formatString = (string) => string.replace(/[\s\.\,]/g, "");
+
+export const stringSeparator = (string) => {
+  return parseInt(formatString(string)).toLocaleString("en-US");
+};
 
 export const filterCards = (inputValue, cards) => {
   cards.map((card) => {
-    card.dataset.title.toLowerCase().includes(inputValue) ? (card.style.display = "block") : (card.style.display = "none");
+    if (inputValue) {
+      card.dataset.title.toLowerCase().includes(inputValue) ? (card.style.display = "block") : (card.style.display = "none");
+    } else card.style.display = "block";
   });
 };
 
@@ -26,10 +32,8 @@ export const sortCards = (cards, container, sortDirection, sortChoiceValue) => {
   } else if (sortChoiceValue === "sort-subscribers") {
     container.innerHTML = "";
     sortDirection === "up"
-      ? cards.sort((a, b) => formatToNumber(a.dataset.subscribers) - formatToNumber(b.dataset.subscribers)).map((card) => container.appendChild(card))
-      : cards
-          .sort((a, b) => formatToNumber(b.dataset.subscribers) - formatToNumber(a.dataset.subscribers))
-          .map((card) => container.appendChild(card));
+      ? cards.sort((a, b) => a.dataset.subscribers - b.dataset.subscribers).map((card) => container.appendChild(card))
+      : cards.sort((a, b) => b.dataset.subscribers - a.dataset.subscribers).map((card) => container.appendChild(card));
   } else if (sortChoiceValue === "sort-videos") {
     container.innerHTML = "";
     sortDirection === "up"
@@ -41,4 +45,15 @@ export const sortCards = (cards, container, sortDirection, sortChoiceValue) => {
       ? cards.sort((a, b) => a.dataset.views - b.dataset.views).map((card) => container.appendChild(card))
       : cards.sort((a, b) => b.dataset.views - a.dataset.views).map((card) => container.appendChild(card));
   }
+};
+
+export const clearOptions = (elements) => {
+  let { sortDirection, sortChoiceValue, filterInput, choice, sortBtnUp, sortBtnDown, cardsContainer, cards } = elements;
+  sortDirection = "";
+  sortChoiceValue = "";
+  filterInput.value = "";
+  choice.map((element) => (element.checked = false));
+  sortBtnUp.classList.remove("active-sort");
+  sortBtnDown.classList.remove("active-sort");
+  cardsContainer.innerHTML = "";
 };

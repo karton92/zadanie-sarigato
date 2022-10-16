@@ -1,4 +1,5 @@
 import "./channelCard.css";
+import { formatString, stringSeparator } from "../utils/functions";
 
 export const channelCard = (parentElement, data) => {
   const {
@@ -9,9 +10,9 @@ export const channelCard = (parentElement, data) => {
 
   let card = ` <div class="card"
   data-title="${title}" 
-  data-subscribers="${subscriberCount}"
-  data-videos="${videoCount}"
-  data-views="${viewCount}"
+  data-subscribers="${formatString(subscriberCount)}"
+  data-videos="${formatString(videoCount)}"
+  data-views="${formatString(viewCount)}"
   >
                         <a href="" target="_blank">
                             <img class="card-img"
@@ -23,15 +24,15 @@ export const channelCard = (parentElement, data) => {
                             <div class="card-stats-wrapper">
                                 <div class="card-stats">
                                     <p class="card-stats-title">SUBSCRIBERS</p>
-                                    <p class="card-stats-number">${subscriberCount}</p>
+                                    <p class="card-stats-number">${stringSeparator(subscriberCount)}</p>
                                 </div>
                                 <div class="card-stats">
                                     <p class="card-stats-title">VIDEOS</p>
-                                    <p class="card-stats-number">${videoCount}</p>
+                                    <p class="card-stats-number">${stringSeparator(videoCount)}</p>
                                 </div>
                                 <div class="card-stat">
                                     <p class="card-stats-title">VIEWS</p>
-                                    <p class="card-stats-number">${viewCount}</p>
+                                    <p class="card-stats-number">${stringSeparator(viewCount)}</p>
                                 </div>
                             </div>
                         </a>
