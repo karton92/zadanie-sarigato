@@ -14,7 +14,6 @@ export const channelCard = (parentElement, data) => {
   data-videos="${formatString(videoCount)}"
   data-views="${formatString(viewCount)}"
   >
-                        <a href="" target="_blank">
                             <img class="card-img"
                                 srcset="${thumbnails.medium.url} ${thumbnails.medium.width}w,
                                         ${thumbnails.default.url} ${thumbnails.default.width}w"
@@ -35,8 +34,7 @@ export const channelCard = (parentElement, data) => {
                                     <p class="card-stats-number">${stringSeparator(viewCount)}</p>
                                 </div>
                             </div>
-                        </a>
-                    </div>
+                        </div>
                     `;
 
   parentElement.insertAdjacentHTML("beforeend", card);

@@ -1,7 +1,7 @@
 export const formatString = (string) => string.replace(/[\s\.\,]/g, "");
 
 export const stringSeparator = (string) => {
-  return parseInt(formatString(string)).toLocaleString("en-US");
+  return Number(formatString(string)).toLocaleString("en-US");
 };
 
 export const filterCards = (inputValue, cards) => {
@@ -40,7 +40,7 @@ export const sortCards = (cards, container, sortDirection, sortChoiceValue) => {
 };
 
 export const clearOptions = (elements) => {
-  let { sortDirection, sortChoiceValue, filterInput, choice, sortBtnUp, sortBtnDown, cardsContainer, cards } = elements;
+  let { sortDirection, sortChoiceValue, filterInput, choice, sortBtnUp, sortBtnDown, cardsContainer } = elements;
   sortDirection = "";
   sortChoiceValue = "";
   filterInput.value = "";
